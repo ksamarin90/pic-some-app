@@ -4,19 +4,17 @@ const Context = React.createContext()
 
 function ContextProvider({children}) {
     const [allPhotos, setAllPhotos] = useState([])
-    const [cartItems, SetCartItems] = useState([])
+    const [cartItems, setCartItems] = useState([])
 
     const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
 
     function addImageToCart(img) {
-        SetCartItems([...cartItems, img])
+        setCartItems([...cartItems, img])
     }
 
     function removeImageFromCart(id) {
-        SetCartItems(cartItems.filter(item => item.id !== id))
+        setCartItems(cartItems.filter(item => item.id !== id))
     }
-
-    console.table(cartItems)
 
     function toggleFavorite(id) {
         const updatedArr = allPhotos.map((photo) => {
@@ -31,6 +29,10 @@ function ContextProvider({children}) {
         setAllPhotos(updatedArr)
     }
 
+    function emptyCart() {
+        setCartItems([])
+    }
+
     useEffect(() => {
         fetch(url)
             .then(promise => promise.json())
@@ -38,7 +40,14 @@ function ContextProvider({children}) {
     }, [])
 
     return (
-        <Context.Provider value={{allPhotos, toggleFavorite, addImageToCart, cartItems, removeImageFromCart}}>
+        <Context.Provider value={{
+            allPhotos, 
+            toggleFavorite, 
+            addImageToCart, 
+            cartItems, 
+            removeImageFromCart, 
+            emptyCart
+        }}>
             {children}
         </Context.Provider>
     )
