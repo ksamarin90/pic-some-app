@@ -10,11 +10,11 @@ function Header() {
 
     return (
         <header>
-            <Link to="/">
+            <Link to="/pic-some-app">
                 <h2>Pic Some</h2>
             </Link>
             
-            <Link to="/cart">
+            <Link to="/pic-some-app/cart">
                 <i className={`${cartClassName} ri-fw ri-2x`}></i>
             </Link>
         </header>
