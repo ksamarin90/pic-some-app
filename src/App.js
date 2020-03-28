@@ -10,11 +10,11 @@ function App() {
             <Header />
         
             <Switch>
-                <Route exact path="/">
+                <Route exact path="https://ksamarin90.github.io/pic-some-app/">
                     <Photos />
                 </Route>
 
-                <Route path="/cart">
+                <Route path="https://ksamarin90.github.io/pic-some-app/cart">
                     <Cart />
                 </Route>
             </Switch>
